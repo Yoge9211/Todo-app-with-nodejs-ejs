@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+  <title>Todo - Daily Routine Tracker</title>
+
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Todo App</h1>
+      <form action="add_task" method="post">
+        <div class="desc">
+          <h5>Description</h5>
+          <input type="text" name="desc" placeholder="What do you need to do" />
+        </div>
+        <!-- Category and date -->
+        <div class="cate_date">
+          <div class="category">
+            <h5>Category</h5>
+            <select name="cate" id="cate">
+              <option value="">Choose a category</option>
+              <option value="Personal">Personal</option>
+              <option value="work">Work</option>
+              <option value="school">School</option>
+              <option value="cleaning">cleaning</option>
+              <option value="other">other</option>
+            </select>
+          </div>
+          <div class="date">
+            <h5>Due date</h5>
+            <input type="date" name="date" />
+          </div>
+        </div>
+        <!-- Buttons -->
+        <div class="btns">
+          <button type="submit" class="add_task">
+            <i class="fa-solid fa-plus"></i>
+            Add Task
+          </button>
+          <button type="hidden" class="delete_task" name="delete" value="_id">
+            <i class="fa-solid fa-trash-can"></i>
+            Delete Task</button>
+        </div>
+      </form>
+      <div class="todoList">
+        <ul>
+          <% for(let i of todo_data){ %>
+            <div class="todos">
+
+              <li>
+                <div>
+                  <input type="checkbox"  value="task_id">
+                  <p>
+                    <%= i.desc%>
+                  </p>
+                  <button>
+                    <%= i.cate%>
+                  </button>
+                </div>
+                <p>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <%= i.date%>
+                </p>
+              </li>
+            </div>
+            <% } %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/54ca33a769.js" crossorigin="anonymous"></script>
+  <script src="/js/home.js"></script>
+</body>
+
+</html>
