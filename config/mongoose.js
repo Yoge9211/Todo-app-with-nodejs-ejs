@@ -1,12 +1,13 @@
-const mongoose =require('mongoose');
-mongoose.connect('mongodb://localhost:27017/todo_app');
+const mongoose = require("mongoose");
 
-const todoSchema = new  mongoose.Schema({
-    desc:String,
-    cate:String,
-    date:String
+mongoose.connect("mongodb://localhost/todo_app");
+
+const db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "Error connecting to MongoDB"));
+
+db.once("open", function () {
+  console.log("Connected to Database :: MongoDB");
 });
 
-const todoList = mongoose.model('todos',todoSchema);
-
-module.exports = todoList;
+module.exports = db;

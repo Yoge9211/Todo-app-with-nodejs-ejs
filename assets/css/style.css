@@ -34,6 +34,7 @@
 
 
 /* Description css */
+
 .card .desc {
   width: 100%;
   height: 10%;
@@ -70,7 +71,6 @@
 .cate_date .category {
   width: 50%;
   height: 60%;
-  /* border: 1px solid red; */
 }
 
 .cate_date .category h5 {
@@ -133,81 +133,65 @@
   cursor: pointer;
 }
 
-
-.btns .delete_task {
-  background-color: rgb(243, 32, 32);
-  color: #fff;
-  font-size: 1.6rem;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  cursor: pointer;
-}
-
-/* todos  */
+/* Todos List style  */
 
 
-.todoList ul .todos {
+.todos {
   width: 100%;
-  height: 10%;
-  /* border: 1px solid red; */
-  margin: 1% 0%;
+  height: 80px; 
+  
+}
+.todosList{
+  height: 105%;
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid gray;
 
 }
-
-
-.todoList ul .todos li {
-  list-style: none;
-}
-
-.todoList ul .todos li div {
+.descanddate{
+  height: 100%;
+  width: 50%;
   display: flex;
-
+  flex-direction: column;
+  font-size:18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+ .dateicon{
+ font-size: 15px;
+ font-weight: 200;
+ color: gray;
+ margin-top: 5px;
 }
 
+.cateanddeletebutton{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  
 
-.todoList ul .todos li div input {
-  outline: none;
-  border: none;
-  margin: 1% 2%;
+}
+.categoryButton{
+  width: auto;
+  height: 25%;
+  background-color: rgb(169, 223, 89);
+  margin: 10px 20px 0px 0px ;
+  padding: 3px;
 }
 
-
-.todoList ul .todos li div p {
-  font-size: 1.3rem;
-  font-weight: bolder;
-  color: rgb(110, 106, 106);
-  margin: 1% 2%;
+.deleteButton{
+  width: 30%;
+  height: 30%;
+  background-color: rgb(199, 61, 61);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  margin: 10px 20px 0px 0px ;
 }
-
-
-
-.todoList ul .todos li div button {
-  outline: none;
-  border: none;
-  padding: 2% 3%;
-  margin: 6px 15px 15px auto;
-  background-color: rgb(173, 173, 48);
-}
-
-
-.todoList ul .todos li p {
-  margin: -3% 7.5%;
-}
-
-.fa-plus {
-  color: whitesmoke;
-  margin: 0 5%;
-  font-size: 1.5 rem;
-  font-weight: bolder;
-}
-
-.fa-trash-can {
-  color: whitesmoke;
-  font-size: 1.5rem;
-  margin: 0 5%;
-}
-
-.fa-calendar-days {
-  color: gray;
+.deleteButton a {
+  text-decoration: none;
+  color: white;
 
 }

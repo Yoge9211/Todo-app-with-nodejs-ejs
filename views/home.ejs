@@ -4,16 +4,18 @@
   <title>Todo - Daily Routine Tracker</title>
 
   <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
   <div class="container">
     <div class="card">
       <h1>Todo App</h1>
-      <form action="add_task" method="post">
+      <form id="myForm" action="/todo/addtask" method="POST">
         <div class="desc">
           <h5>Description</h5>
-          <input type="text" name="desc" placeholder="What do you need to do" />
+          <input type="text" name="desc" placeholder="What do you need to do" id="desc" required />
         </div>
         <!-- Category and date -->
         <div class="cate_date">
@@ -25,53 +27,63 @@
               <option value="work">Work</option>
               <option value="school">School</option>
               <option value="cleaning">cleaning</option>
+              <option value="entertainment">Entertainment</option>
               <option value="other">other</option>
             </select>
           </div>
           <div class="date">
             <h5>Due date</h5>
-            <input type="date" name="date" />
+            <input type="date" name="date" id="date" />
           </div>
         </div>
         <!-- Buttons -->
         <div class="btns">
-          <button type="submit" class="add_task">
+          <!-- <a href="/todo/addtask"> -->
+          <button class="add_task" id="add_task">
             <i class="fa-solid fa-plus"></i>
             Add Task
           </button>
-          <button type="hidden" class="delete_task" name="delete" value="_id">
-            <i class="fa-solid fa-trash-can"></i>
-            Delete Task</button>
         </div>
       </form>
-      <div class="todoList">
-        <ul>
-          <% for(let i of todo_data){ %>
-            <div class="todos">
 
-              <li>
-                <div>
-                  <input type="checkbox"  value="task_id">
-                  <p>
-                    <%= i.desc%>
-                  </p>
-                  <button>
-                    <%= i.cate%>
-                  </button>
-                </div>
-                <p>
-                  <i class="fa-solid fa-calendar-days"></i>
-                  <%= i.date%>
-                </p>
-              </li>
+      <!--  SHOWING TODOS FROM DATABASE -->
+      <div class="todos">
+        <% for(todo of todos){ %>
+
+          <div class="todosList">
+            <div class="descanddate">
+              <%= todo.desc %>
+                <br>
+                <small class="dateicon">
+                  <i class="fa-regular fa-calendar"></i>
+                  <%= todo.date %>
+                </small>
+
+                <br>
+
             </div>
-            <% } %>
-        </ul>
+            <div class="cateanddeletebutton">
+              <div class="categoryButton">
+                <%= todo.cate %>
+
+              </div>
+              <div class="deleteButton">
+                <a href="/todo/delete/<%= todo.id %>">
+                  <i class="fa-solid fa-trash-can"></i>
+                  Delete
+                  <br>
+                </a>
+              </div>
+
+            </div>
+          </div>
+          <%} %>
       </div>
     </div>
+
   </div>
+
   <script src="https://kit.fontawesome.com/54ca33a769.js" crossorigin="anonymous"></script>
-  <script src="/js/home.js"></script>
 </body>
 
 </html>
